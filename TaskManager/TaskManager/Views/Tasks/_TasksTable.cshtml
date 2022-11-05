@@ -1,0 +1,60 @@
+﻿@model TaskManager.Models.TasksManager
+@inject TaskManager.Services.IRepository<TasksManager> repository
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Done)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (repository.GetAll().ToList().Count > 1)
+        {
+            foreach (var task in repository.GetAll())
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => task.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => task.Priority)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => task.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => task.StartTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => task.EndTime)
+                    </td>
+                    <td>
+                        <input asp-for="@task.Done" />
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", task, new { @class = "" }) |
+                        @Html.ActionLink("Details", "Details", task, new { @class = "" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = task.Id }, new { @class = "text-danger" });
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

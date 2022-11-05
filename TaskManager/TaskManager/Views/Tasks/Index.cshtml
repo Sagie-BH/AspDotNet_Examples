@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "index";
+}
+
+<h1>Task Manager</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col col-lg-8">
+            <partial name="_TasksTable" />
+        </div>
+        <div class="col col-lg-4">
+            <partial name="_TasksForm" />
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

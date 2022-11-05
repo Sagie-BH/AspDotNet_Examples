@@ -1,0 +1,32 @@
+﻿@model TaskManager.Models.TasksManager
+
+
+<form asp-controller="Tasks" asp-action="AddNewTask" method="post">
+    <div class="row">
+        <div class="form-group col-lg-12 col-md-4 col-4">
+            <label asp-for="Priority"></label>
+            <input asp-for="Priority" type="number" class="form-control" placeholder="Enter Priority..." />
+            <span asp-validation-for="Priority"></span>
+        </div>
+        <div class="form-group col-lg-12 col-md-8 col-8">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" placeholder="Enter Title..." />
+            <span asp-validation-for="Title"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-10 col-6">
+            <label asp-for="StartTime"></label>
+            <input asp-for="StartTime" type="datetime-local" />
+            <span asp-validation-for="StartTime"></span>
+        </div>
+        <div class="form-group col-lg-10 col-6">
+            <label asp-for="EndTime"></label>
+            <input asp-for="EndTime" type="datetime-local" />
+            <span asp-validation-for="EndTime"></span>
+        </div>
+    </div>
+    <hr />
+    <input type="submit" class="btn btn-primary" placeholder="Save" />
+</form>
+
